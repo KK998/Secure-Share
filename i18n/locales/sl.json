@@ -1,0 +1,24 @@
+{
+    "form": {
+        "requiredField": "Polje je obvezno!",
+        "submit": "Oddaj",
+        "minimumLength": "Polje mora vsebovati vsaj {value} znakov!",
+        "access": "Dostopaj"
+    },
+    "landing": {
+        "greeting": "Secure Share",
+        "content_label": "Vsebina za oddajo",
+        "password_label": "Geslo za enkripcijo vsebine",
+        "self_destruct_label": "Avtomatsko izbriši",
+        "self_destruct_help": "Ko je vsebina enkrat varno kopirana, bo vnos odstranjen iz baze podatkov.",
+        "notice": "{'@'}kk998 MIT",
+        "no_slug": "Brez prejete uri povezave!",
+        "malformed_slug": "Napaka v prejeti uri povezavi!"
+    },
+    "share": {
+        "copy": "Kopiraj v odložišče"
+    },
+    "create": {
+        "info": "Vaša varna skupna raba je bila ustvarjena. Uporabite spodnjo povezavo, da delite svojo vsebino."
+    }
+}

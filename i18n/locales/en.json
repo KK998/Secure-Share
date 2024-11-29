@@ -1,0 +1,24 @@
+{
+    "form": {
+        "requiredField": "Required field!",
+        "submit": "Share",
+        "minimumLength": "Field must have at least {value} symbols!",
+        "access": "Access"
+    },
+    "landing": {
+        "greeting": "Secure Share",
+        "content_label": "Content to share",
+        "password_label": "Password for content encryption",
+        "self_destruct_label": "Self destroy",
+        "self_destruct_help": "After the content is safely copied once, the entry will be removed from the database.",
+        "notice": "{'@'}kk998 MIT",
+        "no_slug": "No slug recived!",
+        "malformed_slug": "Malformed slug recieved!"
+    },
+    "share": {
+        "copy": "Copy to clipboard"
+    },
+    "create": {
+        "info": "Your secure share has been created. Use the below link to share your content."
+    }
+}
