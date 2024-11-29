@@ -25,7 +25,7 @@ const state = reactive({
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   try {
     isLoading.value = true
-    const response: any = await $fetch(`/api/v1/share/${route.params.id}`, {
+    const response: { [key: string]: string } = await $fetch(`/api/v1/share/${route.params.id}`, {
       method: 'post',
       body: {
         password: event.data.password
@@ -43,9 +43,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-  <UForm ref="form" :schema="schema" :state="state" :validate-on="['input', 'submit', 'change']"
+  <UForm
+ref="form" :schema="schema" :state="state" :validate-on="['input', 'submit', 'change']"
     class="space-y-4 grow w-full" @submit="onSubmit">
-    <UCard :ui="{
+    <UCard
+:ui="{
       body: {
         base: 'flex flex-col gap-4'
       }

@@ -1,4 +1,4 @@
-import { Share } from "~/server/utils/drizzle";
+import type { Share } from "~/server/utils/drizzle";
 import { decrypt } from "~/server/utils/crypto"
 
 class ShareDTO {

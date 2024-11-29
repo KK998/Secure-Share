@@ -31,7 +31,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vee-validate/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxt/eslint'
   ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

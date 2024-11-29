@@ -18,7 +18,7 @@ export function encrypt(data: string, encryptionKey: string) {
 export function decrypt(encryptedData: string, encryptionKey: string) {
     const hashedEncryptionKey = crypto.createHash('sha256').update(encryptionKey).digest('hex').substring(0, 32);
 
-    const [initializationVectorAsHex, encryptedDataAsHex] = encryptedData?.split(':');
+    const [initializationVectorAsHex, encryptedDataAsHex] = encryptedData.split(':');
     const initializationVector = Buffer.from(initializationVectorAsHex, 'hex');
 
     const decipher = crypto.createDecipheriv(CIPHER_ALGORITH, hashedEncryptionKey, initializationVector);

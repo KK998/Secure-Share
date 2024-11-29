@@ -16,10 +16,11 @@ const handleUrlCopy = () => {
     <div class="flex flex-col gap-6 items-center justify-center">
         <p class="text-black dark:text-white text-lg">{{ $t('create.info') }}</p>
         <UButtonGroup size="lg" orientation="horizontal" class="w-full">
-            <UInput class="w-full" v-model="urlToCopy" disabled :ui="{
+            <UInput
+class="w-full" :model-value="urlToCopy" disabled :ui="{
                 base: 'disabled:!cursor-copy'
             }" />
-            <UButton @click="handleUrlCopy" icon="i-heroicons-clipboard-document" color="gray" />
+            <UButton icon="i-heroicons-clipboard-document" color="gray" @click="handleUrlCopy" />
         </UButtonGroup>
     </div>
 </template>

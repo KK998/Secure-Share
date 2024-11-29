@@ -8,12 +8,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "lint": "eslint --fix .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
+    "@nuxt/eslint": "^0.7.2",
     "@nuxt/icon": "^1.8.2",
     "@nuxt/ui": "^2.19.2",
     "@nuxtjs/i18n": "9.0.0-rc.2",
@@ -28,7 +30,9 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "^0.7.2",
     "drizzle-kit": "^0.28.1",
+    "eslint": "^9.15.0",
     "typescript": "^5.7.2"
   }
 }

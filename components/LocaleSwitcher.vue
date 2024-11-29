@@ -8,9 +8,9 @@ const availableLocales = computed(() => {
 </script>
 
 <template>
-  <UButton variant="soft" v-for="locale in availableLocales" :key="locale.code">
-    <NuxtLink :to="switchLocalePath(locale.code)">
-      {{ locale.name }}
+  <UButton v-for="l in availableLocales" :key="l.code" variant="soft">
+    <NuxtLink :to="switchLocalePath(l.code)">
+      {{ l.name }}
     </NuxtLink>
   </UButton>
 </template>

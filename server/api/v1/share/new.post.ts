@@ -4,6 +4,7 @@ import { object, string, bool } from 'yup'
 
 import { shares } from '~/server/database/schema'
 import { encrypt } from "~/server/utils/crypto"
+import { useDrizzle } from '~/server/utils/drizzle'
 
 const schema = object({
     content: string().required('content:form.requiredField'),

@@ -18,7 +18,7 @@ const toggleVisibility = () => {
 </script>
 
 <template>
-  <UInput v-model="model" :type="type" :ui="{ icon: { trailing: { pointer: '' } } }" v-bind="$attrs">
+  <UInput v-model="model" :type="type" :ui="{ icon: { trailing: { pointer: '' } } }" autocomplete="off" v-bind="$attrs">
     <template #trailing>
       <UIcon :name="iconName" class="w-5 h-5" @click="toggleVisibility" />
     </template>

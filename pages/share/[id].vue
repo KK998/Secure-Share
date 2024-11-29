@@ -22,10 +22,11 @@ function handleContentCopy() {
     <ClientOnly>
       <SharePasswordForm v-if="!content" @submit="content = $event" />
       <UButtonGroup v-else size="lg" orientation="vertical" class="w-full">
-        <UTextarea class="w-full" v-model="content" disabled :ui="{
+        <UTextarea
+v-model="content" class="w-full" disabled autoresize :ui="{
           base: 'disabled:!cursor-copy'
         }" />
-        <UButton @click="handleContentCopy" icon="i-heroicons-clipboard-document" color="gray" class="ml-auto">
+        <UButton icon="i-heroicons-clipboard-document" color="gray" class="ml-auto" @click="handleContentCopy">
           {{ $t('share.copy') }}
         </UButton>
       </UButtonGroup>

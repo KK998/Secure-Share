@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm"
 import ShareDTO from "~/server/database/dto/ShareDTO"
 import { shares } from "~/server/database/schema"
+import { useDrizzle } from "~/server/utils/drizzle"
 
 export default defineEventHandler(async (event) => {
     const id = getRouterParam(event, 'id')

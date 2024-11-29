@@ -10,9 +10,8 @@ const toast = useToast()
 
 const schema = object({
   content: string().required(t('form.requiredField')),
-  //password: string().min(8, t('form.minimumLength', { value: 8 })).required(t('form.requiredField')),
-  password: string().optional(),
-  selfDestruct: bool().default(false).optional()
+  password: string().min(8, t('form.minimumLength', { value: 8 })).required(t('form.requiredField')),
+  selfDestruct: bool().default(true).optional()
 })
 
 type Schema = InferType<typeof schema>
@@ -23,7 +22,7 @@ const isLoading = ref(false)
 const state = reactive({
   content: undefined,
   password: undefined,
-  selfDestruct: undefined
+  selfDestruct: true
 })
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -32,9 +31,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     const response = await $fetch('/api/v1/share/new', {
       method: 'POST',
       body: {
-        selfDestruct: state.selfDestruct,
-        password: state.password,
-        content: state.content
+        selfDestruct: event.data.selfDestruct,
+        password: event.data.password,
+        content: event.data.content
       },
     })
 
@@ -46,7 +45,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       return
     }
 
-    if (response.slug.match(/\/share\/[\w\d]+/) === null) {
+    if (String(response.slug).match(/\/share\/[\w\d]+/) === null) {
       toast.add({
         color: 'red',
         title: t('malformed_slug'),
