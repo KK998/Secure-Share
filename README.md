@@ -56,3 +56,27 @@ bun run dev
 ```
 
 ## Deployment
+
+For the deployment you can follow Nuxt official recomendations or use the provided Dockerfiles.
+
+This Dockerfile is based on the examples provided in the [Nitro deployment documentation](https://nitro.unjs.io/deploy/providers/koyeb#using-a-docker-container) and adapted for Nuxt.
+
+Key points about this Dockerfile:
+- It uses a multi-stage build process to keep the final image size small.
+- It installs dependencies, builds the Nuxt application, and then creates a production-ready image.
+- It sets up a non-root user for better security.
+- It exposes port 3000 and sets necessary environment variables.
+
+The start command uses `node server/index.mjs`, which is the standard entry point for a Nuxt application built for production.
+
+To build your Docker image, run:
+
+```sh
+docker build -t secure-shell .
+```
+
+and to run it:
+
+```sh
+docker run -p 3000:3000 secure-shell
+```
