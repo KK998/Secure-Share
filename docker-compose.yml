@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.migrate
+    volumes:
+      - ./data:/app/data  # Ensure access to the same volume
+    env_file:
+      - .env

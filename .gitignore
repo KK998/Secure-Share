@@ -7,7 +7,7 @@
 dist
 
 # Database
-secure-share.db
+data/*
 
 # Node dependencies
 node_modules

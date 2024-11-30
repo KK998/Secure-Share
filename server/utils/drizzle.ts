@@ -1,17 +1,17 @@
-import { drizzle } from 'drizzle-orm/libsql/node';
+import { drizzle } from 'drizzle-orm/better-sqlite3';
 import * as schema from '../database/schema'
+import Database from 'better-sqlite3';
 
 export const tables = schema
 
+if (!process.env.DATABASE_URL) throw Error('Specify database url!')
+
+const sqlite = new Database(process.env.DATABASE_URL)
+
 export function useDrizzle() {
-    if (!process.env.DATABASE_URL) throw Error('Specify database url!')
-    if (!process.env.DATABASE_AUTH_TOKEN) throw Error('Specify database auth token!')
 
     return drizzle({
-        connection: {
-            url: process.env.DATABASE_URL,
-            authToken: process.env.DATABASE_AUTH_TOKEN,
-        },
+        client: sqlite,
         schema
     })
 }

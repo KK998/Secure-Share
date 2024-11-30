@@ -1,0 +1,21 @@
+# Base Image: Use the same Node.js version as the application for consistency
+ARG NODE_VERSION=20.14.0
+FROM node:${NODE_VERSION}-slim AS migrate
+
+# Enable corepack to use yarn
+RUN corepack enable
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy necessary files for dependency installation (e.g., package.json, yarn.lock)
+COPY package.json yarn.lock ./
+
+# Install dependencies (including dependencies needed for running migrations)
+RUN yarn install
+
+# Copy the rest of the application files (migration scripts, etc.)
+COPY . ./
+
+# Run the migration command
+CMD ["yarn", "run", "db:migrate"]

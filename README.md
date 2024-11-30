@@ -69,14 +69,26 @@ Key points about this Dockerfile:
 
 The start command uses `node server/index.mjs`, which is the standard entry point for a Nuxt application built for production.
 
-To build your Docker image, run:
+To build the app and run migrations etc.
 
 ```sh
-docker build -t secure-shell .
+docker-compose up --build
 ```
 
-and to run it:
+To only build the app
 
 ```sh
-docker run -p 3000:3000 secure-shell
+docker-compose build
+```
+
+To only run the migrations
+
+```sh
+docker-compose up migrate
+```
+
+To only run the app
+
+```sh
+docker-compose up app
 ```
